@@ -89,14 +89,24 @@ class App {
       this.result.parentElement.classList.add("draw-result");
     }
   }
+  logger() {
+    console.group("SUUUUUUIT!!!");
+    console.log(`Player 1 memilih ${this.playerChoice.title}`);
+    console.log(`Computer memilih ${this.computerChoice.title}`);
+    console.log("......");
+    console.log(`Hasil pertandingan ini adalah ${this.result.innerHTML}`);
+    console.groupEnd();
+  }
   startListener() {
     this.startingState();
+    console.log("Silahkan memilih antara rock, paper, atau scissors sebagai suitmu.");
 
     this.player.rock.onclick = () => {
       this.playerChoice = this.player.rock;
       this.getComputerChoice();
       this.getGameResult(this.playerChoice.title, this.computerChoice.title);
       this.renderResult();
+      this.logger();
       this.endingState();
     };
     this.player.paper.onclick = () => {
@@ -104,6 +114,7 @@ class App {
       this.getComputerChoice();
       this.getGameResult(this.playerChoice.title, this.computerChoice.title);
       this.renderResult();
+      this.logger();
       this.endingState();
     };
     this.player.scissors.onclick = () => {
@@ -111,6 +122,7 @@ class App {
       this.getComputerChoice();
       this.getGameResult(this.playerChoice.title, this.computerChoice.title);
       this.renderResult();
+      this.logger();
       this.endingState();
     };
     this.resetButton.onclick = () => {
